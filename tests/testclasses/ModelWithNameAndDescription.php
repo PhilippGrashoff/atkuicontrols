@@ -3,20 +3,16 @@
 namespace atkuicontrols\tests\testclasses;
 
 use Atk4\Data\Model;
-use atkuicontrols\CheckboxWithHtmlLabel;
-use atkuicontrols\Color;
-use atkuicontrols\GermanCalendar;
-use atkuicontrols\GermanMoney;
-use atkuicontrols\Integer;
-use atkuicontrols\RadioWithDescription;
-use atkuicontrols\Time;
 
 class ModelWithNameAndDescription extends Model
 {
+    public $table = 'model_with_name_and_description';
 
     protected function init(): void
     {
+        parent::init();
         $this->addField('name');
         $this->addField('description');
+        $this->addField('icon');
     }
 }

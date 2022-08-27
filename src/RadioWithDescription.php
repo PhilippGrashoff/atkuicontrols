@@ -5,20 +5,22 @@ declare(strict_types=1);
 namespace atkuicontrols;
 
 use Atk4\Data\Model;
-use atk4\data\Persistence\Static_;
+use Atk4\Data\Persistence\Static_;
 use Atk4\Ui\Form;
+use Atk4\Ui\HtmlTemplate;
 
 class RadioWithDescription extends Form\Control\Input
 {
-    public $defaultTemplate = 'radio_with_description.html';
-    public $descriptionField;
+    public string $plainDescriptionField = '';
+    public string $htmlDescriptionField = '';
+    public string $iconField = '';
     public $selectedId;
-    public $descriptionArray = [];
-    public array $values;
-    protected $_tRow;
+    public array $values = [];
+    protected HtmlTemplate $_tRow;
 
     protected function init(): void
     {
+        $this->defaultTemplate = dirname(__DIR__) . '/template/radio_with_description.html';
         parent::init();
         $this->_tRow = $this->template->cloneRegion('Row');
         $this->template->del('Row');
@@ -31,45 +33,43 @@ class RadioWithDescription extends Form\Control\Input
             $p = new Static_($this->values);
             $this->setModel(new Model($p));
         }
-        $value = $this->field ? $this->field->get() : $this->selectedId;
+        $selectedId = $this->field ? $this->field->get() : $this->selectedId;
 
         if ($this->disabled) {
             $this->addClass('disabled');
         }
 
         foreach ($this->model as $record) {
-            $this->_appendRow($record, $value);
+            $this->_appendRow($record, $selectedId);
         }
     }
 
-    protected function _appendRow(Model $record, $value)
+    protected function _appendRow(Model $record, $selectedId)
     {
         if ($this->readonly) {
-            $this->_tRow->set('disabled', $value != $record->id ? 'disabled="disabled"' : '');
+            $this->_tRow->set('disabled', $selectedId != $record->getId() ? 'disabled="disabled"' : '');
         } elseif ($this->disabled) {
             $this->_tRow->set('disabled', 'disabled="disabled"');
         }
 
-        if ($this->descriptionField) {
-            $this->_tRow->set('description', $record->get($this->descriptionField));
-        } elseif ($this->descriptionArray) {
-            $this->_tRow->set('description', $this->descriptionArray[$record->getId()]);
+        if ($this->plainDescriptionField && $record->hasField($this->plainDescriptionField)) {
+            $this->_tRow->set('plain_description', $record->get($this->plainDescriptionField));
         }
-        if ($record->hasField('icon')) {
-            $this->_tRow->set('icon', $record->get('icon'));
+        if ($this->htmlDescriptionField && $record->hasField($this->htmlDescriptionField)) {
+            $this->_tRow->dangerouslySetHtml('html_description', $record->get($this->htmlDescriptionField));
         }
-        if ($this->model->hasField('html')) {
-            $this->_tRow->setHTML('extra_html', $record->get('html'));
+        if ($this->iconField && $record->hasField($this->iconField)) {
+            $this->_tRow->set('icon', $record->get($this->iconField));
         }
 
-        if ($record->get($record->id_field) == $value) {
+        if ($record->getId() == $selectedId) {
             $this->_tRow->set('checked', 'checked="checked"');
         } else {
             $this->_tRow->set('checked', '');
         }
         $this->_tRow->set('id', $record->getId());
-        $this->_tRow->set('name', $record->get($record->title_field));
+        $this->_tRow->set('name', $record->getTitle());
 
-        $this->template->appendHTML('Row', $this->_tRow->render());
+        $this->template->dangerouslyAppendHtml('Row', $this->_tRow->renderToHtml());
     }
 }

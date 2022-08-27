@@ -1,0 +1,21 @@
+<div id="{$_id}" class="{$class} grouped fields" style="{$style}" {$attributes}>
+    {Radio}{Row}
+    <div class="field">
+        <div class="ui radio checkbox">
+            <input id="{$_name}_{$id}" type="radio" name="{$_name}" value="{$id}" {$checked} {$disabled}/>
+            <label for="{$_name}_{$id}">
+                <div class="ui list" style="padding:0">
+                    <div class="item">
+                        {Icon}<i class="large icon {$icon}"></i>{/Icon}
+                        <div class="content">
+                            <b class="header">{$name}</b>
+                            <div class="description">{$plain_description}{$html_description}</div>
+                        </div>
+                    </div>
+                </div>
+            </label>
+        </div>
+    </div>
+    {/Row}{/Radio}
+    <label>{$Content}</label>
+</div>
