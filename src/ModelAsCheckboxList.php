@@ -11,13 +11,14 @@ use atk4\ui\JsExpression;
 
 /**
  * Creates a checkbox list based upon a model. Stores all selected data in a json string.
+ * Currently not used, hence commmented
  */
 class ModelAsCheckboxList extends Control\Input
 {
+/*
+    public $defaultTemplate = 'model_as_checkbox_list.html';
 
-    public $defaultTemplate = 'formfield/checkbox_list.html';
-
-    public $descField = '';
+    public string $descField = '';
     public $extraInfo = null;
 
     protected $_tRow;
@@ -71,5 +72,5 @@ class ModelAsCheckboxList extends Control\Input
         $this->template->set('name', $this->field->short_name);
 
     }
-
+*/
 }
