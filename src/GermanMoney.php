@@ -9,7 +9,7 @@ namespace atkuicontrols;
 /**
  * TODO: THis is temporary until ATK can handle Thousands seperator
  */
-class Money extends \atk4\ui\Form\Control\Money
+class GermanMoney extends \atk4\ui\Form\Control\Money
 {
 
     public function getValue(): ?string
