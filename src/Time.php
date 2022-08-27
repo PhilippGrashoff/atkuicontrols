@@ -2,7 +2,7 @@
 
 namespace atkuicontrols;
 
-use atk4\ui\Form\Control\Input;
+use Atk4\Ui\Form\Control\Input;
 
 class Time extends Input
 {

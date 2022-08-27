@@ -10,7 +10,7 @@ use Atk4\Ui\Layout\Centered;
 use Atk4\Ui\Template;
 use atkuicontrols\CheckboxWithHtmlLabel;
 use atkuicontrols\tests\testclasses\ModelWithUiControls;
-use atkuicontrols\tests\testclasses\SimpleModel;
+use atkuicontrols\tests\testclasses\ModelWithNameAndDescription;
 use traitsforatkdata\TestCase;
 
 
@@ -32,7 +32,7 @@ class CheckboxWithHtmlLabelTest extends TestCase
         $labelTemplate = new HtmlTemplate('<div>Some simple <b>{$testvar}</b> Template</div>');
         $labelTemplate->set('testvar', 'but good enough');
 
-        $app = new App(['always_run' => false]); //'layout' => ['layout' => Centered::class]]);
+        $app = new App(['always_run' => false]);
         $app->initLayout([Centered::class]);
         $form = Form::addTo($app);
         $checkbox = $form->addControl('testfield', [CheckboxWithHtmlLabel::class]);
@@ -47,7 +47,7 @@ class CheckboxWithHtmlLabelTest extends TestCase
 
     public function testWithoutLabelTemplate(): void
     {
-        $app = new App(['always_run' => false]); //'layout' => ['layout' => Centered::class]]);
+        $app = new App(['always_run' => false]);
         $app->initLayout([Centered::class]);
         $form = Form::addTo($app);
         $checkbox = $form->addControl('testfield', [CheckboxWithHtmlLabel::class]);

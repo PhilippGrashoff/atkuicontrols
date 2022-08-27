@@ -2,8 +2,8 @@
 
 namespace atkuicontrols;
 
-use atk4\ui\Form\Control\Calendar;
-use atk4\ui\JsExpression;
+use Atk4\Ui\Form\Control\Calendar;
+use Atk4\Ui\JsExpression;
 
 class GermanCalendar extends Calendar {
 

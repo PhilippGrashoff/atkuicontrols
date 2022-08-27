@@ -11,11 +11,12 @@ use atkuicontrols\Integer;
 use atkuicontrols\RadioWithDescription;
 use atkuicontrols\Time;
 
-class SimpleModel extends Model
+class ModelWithNameAndDescription extends Model
 {
 
     protected function init(): void
     {
-        $this->addField('name',);
+        $this->addField('name');
+        $this->addField('description');
     }
 }

@@ -21,52 +21,38 @@ class ModelWithUiControls extends Model
         parent::init();
 
         $this->addField(
-            'checkboxwithhtmllabel',
-            [
-                'type' => 'boolean',
-                'ui' => ['form' => CheckboxWithHtmlLabel::class]
-            ]
-        );
-        $this->addField(
             'color',
             [
                 'type' => 'string',
-                'ui' => ['form' => Color::class]
+                'ui' => ['form' => [Color::class]]
             ]
         );
         $this->addField(
             'germancalendar',
             [
                 'type' => 'date',
-                'ui' => ['form' => GermanCalendar::class]
+                'ui' => ['form' => [GermanCalendar::class]]
             ]
         );
         $this->addField(
             'germanmoney',
             [
                 'type' => 'money',
-                'ui' => ['form' => GermanMoney::class]
+                'ui' => ['form' => [GermanMoney::class]]
             ]
         );
         $this->addField(
             'integer',
             [
                 'type' => 'integer',
-                'ui' => ['form' => Integer::class]
-            ]
-        );
-        $this->addField(
-            'radiowithdescription',
-            [
-                'type' => 'integer',
-                'ui' => ['form' => RadioWithDescription::class]
+                'ui' => ['form' => [Integer::class]]
             ]
         );
         $this->addField(
             'time',
             [
                 'type' => 'time',
-                'ui' => ['form' => Time::class]
+                'ui' => ['form' => [Time::class]]
             ]
         );
     }

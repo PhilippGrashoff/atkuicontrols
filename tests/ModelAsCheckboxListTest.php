@@ -3,7 +3,7 @@
 namespace atkuicontrols\tests;
 
 use Atk4\Data\Persistence;
-use atkuicontrols\tests\testclasses\SimpleModel;
+use atkuicontrols\tests\testclasses\ModelWithNameAndDescription;
 use traitsforatkdata\TestCase;
 
 
@@ -15,7 +15,7 @@ class ModelAsCheckboxListTest extends TestCase
     /*
    protected Persistence $persistence;
     protected $sqlitePersistenceModels = [
-        SimpleModel::class
+        ModelWithNameAndDescription::class
     ];
 
     protected function setUp(): void
@@ -26,10 +26,10 @@ class ModelAsCheckboxListTest extends TestCase
 
 
     public function testModelIsUsed(): void {
-        $simpleModel1 = new SimpleModel($this->persistence);
+        $simpleModel1 = new ModelWithNameAndDescription($this->persistence);
         $simpleModel1->set('name', 'Lala');
         $simpleModel1->save();
-        $simpleModel2 = new SimpleModel($this->persistence);
+        $simpleModel2 = new ModelWithNameAndDescription($this->persistence);
         $simpleModel2->set('name', 'Lala');
         $simpleModel2->save();
     }
