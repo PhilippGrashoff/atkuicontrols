@@ -5,19 +5,23 @@ declare(strict_types=1);
 namespace atkuicontrols;
 
 use Atk4\Ui\Form\Control\Checkbox;
+use Atk4\Ui\HtmlTemplate;
 use Atk4\Ui\Template;
 
 class CheckboxWithHtmlLabel extends Checkbox
 {
 
-    public Template $labelTemplate;
+    public HtmlTemplate $labelTemplate;
 
     protected function renderView(): void
     {
         if ($this->labelTemplate) {
-            $this->template->setHtml('Content', $this->labelTemplate->render());
+            $this->template->dangerouslySetHtml('Content', $this->labelTemplate->renderToHtml());
+        } elseif ($this->label) {
+            $this->template->set('Content', $this->label);
         }
 
+        //From here its copy pasted code of Checkbox::renderView()
         if ($this->field ? $this->field->get() : $this->content) {
             $this->template->set('checked', 'checked');
         }

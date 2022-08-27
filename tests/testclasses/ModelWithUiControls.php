@@ -14,17 +14,21 @@ use atkuicontrols\Time;
 class ModelWithUiControls extends Model
 {
 
+    public $table = 'sometable';
+
     protected function init(): void
     {
+        parent::init();
+
         $this->addField(
-            'integer',
+            'checkboxwithhtmllabel',
             [
-                'type' => 'checkboxwithhtmllabel',
+                'type' => 'boolean',
                 'ui' => ['form' => CheckboxWithHtmlLabel::class]
             ]
         );
         $this->addField(
-            'integer',
+            'color',
             [
                 'type' => 'string',
                 'ui' => ['form' => Color::class]

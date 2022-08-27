@@ -14,7 +14,7 @@ class RadioWithDescription extends Form\Control\Input
     public $descriptionField;
     public $selectedId;
     public $descriptionArray = [];
-    public $values;
+    public array $values;
     protected $_tRow;
 
     protected function init(): void
@@ -53,7 +53,7 @@ class RadioWithDescription extends Form\Control\Input
         if ($this->descriptionField) {
             $this->_tRow->set('description', $record->get($this->descriptionField));
         } elseif ($this->descriptionArray) {
-            $this->_tRow->set('description', $this->descriptionArray[$record->get($record->id_field)]);
+            $this->_tRow->set('description', $this->descriptionArray[$record->getId()]);
         }
         if ($record->hasField('icon')) {
             $this->_tRow->set('icon', $record->get('icon'));
