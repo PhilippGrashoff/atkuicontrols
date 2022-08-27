@@ -44,4 +44,19 @@ class CheckboxWithHtmlLabelTest extends TestCase
             $output
         );
     }
+
+    public function testWithoutLabelTemplate(): void
+    {
+        $app = new App(['always_run' => false]); //'layout' => ['layout' => Centered::class]]);
+        $app->initLayout([Centered::class]);
+        $form = Form::addTo($app);
+        $checkbox = $form->addControl('testfield', [CheckboxWithHtmlLabel::class]);
+
+        $output = $form->getHtml();
+        self::assertStringContainsString(
+            '>Testfield</label>',
+            $output
+        );
+    }
+
 }

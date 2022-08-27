@@ -11,7 +11,7 @@ use Atk4\Ui\Template;
 class CheckboxWithHtmlLabel extends Checkbox
 {
 
-    public HtmlTemplate $labelTemplate;
+    public ?HtmlTemplate $labelTemplate = null;
 
     protected function renderView(): void
     {
