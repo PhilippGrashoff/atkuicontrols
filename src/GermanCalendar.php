@@ -5,7 +5,8 @@ namespace atkuicontrols;
 use Atk4\Ui\Form\Control\Calendar;
 use Atk4\Ui\JsExpression;
 
-class GermanCalendar extends Calendar {
+class GermanCalendar extends Calendar
+{
 
     protected function init(): void
     {
@@ -20,7 +21,8 @@ class GermanCalendar extends Calendar {
             false
         );
 
-        $this->options['text']['days'] = new JsExpression("['S', 'M', 'D', 'M', 'D', 'F', 'S'],
+        $this->options['text']['days'] = new JsExpression(
+            "['S', 'M', 'D', 'M', 'D', 'F', 'S'],
                       months: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
                       monthsShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
                       today: 'Heute',

@@ -14,7 +14,7 @@ class RadioWithDescription extends Form\Control\Input
     public string $plainDescriptionField = '';
     public string $htmlDescriptionField = '';
     public string $iconField = '';
-    public $selectedId;
+    public $selectedId; //TODO can possibly be removed as a field is always added when adding a control to a form
     public array $values = [];
     protected HtmlTemplate $_tRow;
 

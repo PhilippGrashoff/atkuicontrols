@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace atkuicontrols;
 
 
-use atk4\data\Model;
 use Atk4\Ui\Form\Control;
-use Atk4\Ui\JsExpression;
 
 /**
  * Creates a checkbox list based upon a model. Stores all selected data in a json string.

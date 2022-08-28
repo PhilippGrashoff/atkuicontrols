@@ -6,7 +6,6 @@ namespace atkuicontrols;
 
 use Atk4\Ui\Form\Control\Checkbox;
 use Atk4\Ui\HtmlTemplate;
-use Atk4\Ui\Template;
 
 class CheckboxWithHtmlLabel extends Checkbox
 {

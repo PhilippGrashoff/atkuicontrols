@@ -2,10 +2,7 @@
 
 namespace atkuicontrols\tests;
 
-use Atk4\Ui\App;
-use Atk4\Ui\Form;
 use Atk4\Ui\HtmlTemplate;
-use Atk4\Ui\Layout\Centered;
 use atkuicontrols\CheckboxWithHtmlLabel;
 
 

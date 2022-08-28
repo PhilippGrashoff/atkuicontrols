@@ -3,12 +3,10 @@
 namespace atkuicontrols\tests\testclasses;
 
 use Atk4\Data\Model;
-use atkuicontrols\CheckboxWithHtmlLabel;
 use atkuicontrols\Color;
 use atkuicontrols\GermanCalendar;
 use atkuicontrols\GermanMoney;
 use atkuicontrols\Integer;
-use atkuicontrols\RadioWithDescription;
 use atkuicontrols\Time;
 
 class ModelWithUiControls extends Model
@@ -28,14 +26,14 @@ class ModelWithUiControls extends Model
             ]
         );
         $this->addField(
-            'germancalendar',
+            'german_calendar',
             [
                 'type' => 'date',
                 'ui' => ['form' => [GermanCalendar::class]]
             ]
         );
         $this->addField(
-            'germanmoney',
+            'german_money',
             [
                 'type' => 'money',
                 'ui' => ['form' => [GermanMoney::class]]
