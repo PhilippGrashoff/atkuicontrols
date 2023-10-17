@@ -1,13 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace atkuicontrols\tests\testclasses;
+namespace PhilippR\Atk4\UiControls\Tests\Testclasses;
 
 use Atk4\Data\Model;
-use atkuicontrols\Color;
-use atkuicontrols\GermanCalendar;
-use atkuicontrols\GermanMoney;
-use atkuicontrols\Integer;
-use atkuicontrols\Time;
+use PhilippR\Atk4\UiControls\Color;
+use PhilippR\Atk4\UiControls\GermanCalendar;
+use PhilippR\Atk4\UiControls\Integer;
+use PhilippR\Atk4\UiControls\Time;
 
 class ModelWithUiControls extends Model
 {
@@ -30,13 +29,6 @@ class ModelWithUiControls extends Model
             [
                 'type' => 'date',
                 'ui' => ['form' => [GermanCalendar::class]]
-            ]
-        );
-        $this->addField(
-            'german_money',
-            [
-                'type' => 'money',
-                'ui' => ['form' => [GermanMoney::class]]
             ]
         );
         $this->addField(

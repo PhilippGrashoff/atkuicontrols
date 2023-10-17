@@ -1,14 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace atkuicontrols\tests;
+namespace PhilippR\Atk4\UiControls\Tests;
 
 use Atk4\Ui\HtmlTemplate;
-use atkuicontrols\CheckboxWithHtmlLabel;
-
+use PhilippR\Atk4\UiControls\CheckboxWithHtmlLabel;
 
 class CheckboxWithHtmlLabelTest extends TestCase
 {
-
     public function testWithLabelTemplate(): void
     {
         $labelTemplate = new HtmlTemplate('<div>Some simple <b>{$testvar}</b> Template</div>');
@@ -35,5 +33,4 @@ class CheckboxWithHtmlLabelTest extends TestCase
             $output
         );
     }
-
 }

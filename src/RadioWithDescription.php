@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace atkuicontrols;
+namespace PhilippR\Atk4\UiControls;
 
 use Atk4\Data\Model;
 use Atk4\Data\Persistence\Static_;
@@ -24,7 +24,7 @@ class RadioWithDescription extends Form\Control\Input
         parent::init();
         $this->_tRow = $this->template->cloneRegion('Row');
         $this->template->del('Row');
-        $this->_tRow->set('_name', $this->short_name);
+        $this->_tRow->set('_name', $this->shortName);
     }
 
     protected function renderView(): void
@@ -33,7 +33,7 @@ class RadioWithDescription extends Form\Control\Input
             $p = new Static_($this->values);
             $this->setModel(new Model($p));
         }
-        $selectedId = $this->field ? $this->field->get() : $this->selectedId;
+        $selectedId = $this->entityField ? $this->entityField->get() : $this->selectedId;
 
         if ($this->disabled) {
             $this->addClass('disabled');
@@ -46,7 +46,7 @@ class RadioWithDescription extends Form\Control\Input
 
     protected function _appendRow(Model $record, $selectedId)
     {
-        if ($this->readonly) {
+        if ($this->readOnly) {
             $this->_tRow->set('disabled', $selectedId != $record->getId() ? 'disabled="disabled"' : '');
         } elseif ($this->disabled) {
             $this->_tRow->set('disabled', 'disabled="disabled"');
@@ -67,7 +67,7 @@ class RadioWithDescription extends Form\Control\Input
         } else {
             $this->_tRow->set('checked', '');
         }
-        $this->_tRow->set('id', $record->getId());
+        $this->_tRow->set('id', (string)$record->getId());
         $this->_tRow->set('name', $record->getTitle());
 
         $this->template->dangerouslyAppendHtml('Row', $this->_tRow->renderToHtml());

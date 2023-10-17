@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace atkuicontrols\tests;
+namespace PhilippR\Atk4\UiControls\Tests;
 
-use atkuicontrols\tests\testclasses\ModelWithUiControls;
+use PhilippR\Atk4\UiControls\Tests\Testclasses\ModelWithUiControls;
 
 
 class ColorIntegerTimeTest extends TestCase
@@ -11,7 +11,7 @@ class ColorIntegerTimeTest extends TestCase
     public function testTypeIsSetToInputTag(): void
     {
         $form = $this->getDemoForm();
-        $form->setModel(new ModelWithUiControls($this->persistence), ['color', 'integer', 'time']);
+        $form->setModel((new ModelWithUiControls($this->db))->createEntity(), ['color', 'integer', 'time']);
 
         $output = $form->getHtml();
         self::assertStringContainsString(

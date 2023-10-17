@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace atkuicontrols\tests\testclasses;
+namespace PhilippR\Atk4\UiControls\Tests\Testclasses;
 
 use Atk4\Data\Model;
 

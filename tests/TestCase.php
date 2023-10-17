@@ -1,30 +1,20 @@
 <?php declare(strict_types=1);
 
-namespace atkuicontrols\tests;
+namespace PhilippR\Atk4\UiControls\Tests;
 
-use Atk4\Data\Persistence;
 use Atk4\Ui\App;
 use Atk4\Ui\Form;
 use Atk4\Ui\Layout\Centered;
-use atkuicontrols\tests\testclasses\ModelWithUiControls;
+use Nyholm\Psr7\Factory\Psr17Factory;
+use Nyholm\Psr7Server\ServerRequestCreator;
 
 
-class TestCase extends \traitsforatkdata\TestCase
+class TestCase extends \Atk4\Data\Schema\TestCase
 {
-    protected Persistence $persistence;
-    protected $sqlitePersistenceModels = [
-        ModelWithUiControls::class
-    ];
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->persistence = $this->getSqliteTestPersistence();
-    }
 
     protected function getDemoForm(): Form
     {
-        $app = new App(['always_run' => false]);
+        $app = new App(['alwaysRun' => false, 'request' => (new Psr17Factory())->createServerRequest('GET', '/')]);
         $app->initLayout([Centered::class]);
         return Form::addTo($app);
     }

@@ -3,26 +3,21 @@
   "minimum-stability": "dev",
   "description": "",
   "prefer-stable": true,
-  "config": {
-    "platform": {
-      "php": "7.4"
-    }
-  },
   "require": {
-    "atk4/ui": "2.4.*"
+    "atk4/ui": "5.*"
   },
   "require-dev": {
-    "phpunit/phpunit": ">8",
-    "philippgrashoff/traitsforatkdata": "2.4.*"
+    "phpunit/phpunit": "^9.5.5",
+    "phpstan/phpstan": "1.*"
   },
   "autoload": {
     "psr-4": {
-      "atkuicontrols\\": "src"
+      "PhilippR\\Atk4\\UiControls\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "atkuicontrols\\tests\\": "tests"
+      "PhilippR\\Atk4\\UiControls\\Tests\\": "tests"
     }
   }
 }

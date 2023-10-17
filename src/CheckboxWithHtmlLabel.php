@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace atkuicontrols;
+namespace PhilippR\Atk4\UiControls;
 
 use Atk4\Ui\Form\Control\Checkbox;
 use Atk4\Ui\HtmlTemplate;
@@ -20,8 +20,8 @@ class CheckboxWithHtmlLabel extends Checkbox
             $this->template->set('Content', $this->label);
         }
 
-        //From here its copy pasted code of Checkbox::renderView()
-        if ($this->field ? $this->field->get() : $this->content) {
+        //From here its copied and pasted code of Checkbox::renderView()
+        if ($this->entityField ? $this->entityField->get() : $this->content) {
             $this->template->set('checked', 'checked');
         }
 
@@ -29,7 +29,7 @@ class CheckboxWithHtmlLabel extends Checkbox
         $this->content = null;
 
         // take care of readonly status
-        if ($this->readonly) {
+        if ($this->readOnly) {
             $this->addClass('read-only');
         }
 

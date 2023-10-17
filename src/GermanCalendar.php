@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace atkuicontrols;
+namespace PhilippR\Atk4\UiControls;
 
 use Atk4\Ui\Form\Control\Calendar;
-use Atk4\Ui\JsExpression;
+use Atk4\Ui\Js\JsExpression;
 
 class GermanCalendar extends Calendar
 {
