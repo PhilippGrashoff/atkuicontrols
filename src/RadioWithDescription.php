@@ -14,9 +14,15 @@ class RadioWithDescription extends Form\Control\Input
     public string $plainDescriptionField = '';
     public string $htmlDescriptionField = '';
     public string $iconField = '';
-    public $selectedId; //TODO can possibly be removed as a field is always added when adding a control to a form
     public array $values = [];
     protected HtmlTemplate $_tRow;
+
+    protected ?Model $model = null;
+
+    //needed to overcome call in View::init() in ATK UI 6.0.0, see TODO
+    protected function setModel(Model $model)
+    {
+    }
 
     protected function init(): void
     {
@@ -31,9 +37,9 @@ class RadioWithDescription extends Form\Control\Input
     {
         if (!$this->model) {
             $p = new Static_($this->values);
-            $this->setModel(new Model($p));
+            $this->model = (new Model($p));
         }
-        $selectedId = $this->entityField ? $this->entityField->get() : $this->selectedId;
+        $selectedId = $this->entityField->get();
 
         if ($this->disabled) {
             $this->addClass('disabled');
