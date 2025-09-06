@@ -7,12 +7,11 @@ use PhilippR\Atk4\UiControls\Tests\Testclasses\ModelWithUiControls;
 
 class GermanCalendarTest extends TestCase
 {
-    public function testTypeIsSetToInputTag(): void
+    public function testGermanLabelsAreUsed(): void
     {
-        self::assertTrue(true);
         /*
         $form = $this->getDemoForm();
-        $form->setModel((new ModelWithUiControls($this->db))->createEntity(), ['german_calendar']);
+        $form->setEntity((new ModelWithUiControls($this->db))->createEntity(), ['german_calendar']);
 
         ob_start();
         $form->getApp()->run();
