@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace PhilippR\Atk4\UiControls;
 
@@ -9,7 +7,7 @@ use Atk4\Data\Persistence\Static_;
 use Atk4\Ui\Form;
 use Atk4\Ui\HtmlTemplate;
 
-class RadioWithDescription extends Form\Control\Input
+class RadioWithDescription extends Form\Control
 {
     public string $plainDescriptionField = '';
     public string $htmlDescriptionField = '';
