@@ -26,6 +26,16 @@ class RadioWithDescription extends Form\Control
     {
         $this->defaultTemplate = dirname(__DIR__) . '/template/radio_with_description.html';
         parent::init();
+
+        // radios are annoying because they don't send value when they are not ticked
+        if ($this->form !== null) {
+            $this->form->onHook(Form::HOOK_LOAD_POST, function (Form $form, array &$postRawData) {
+                if (!isset($postRawData[$this->shortName])) {
+                    $postRawData[$this->shortName] = '';
+                }
+            });
+        }
+
         $this->_tRow = $this->template->cloneRegion('Row');
         $this->template->del('Row');
         $this->_tRow->set('_name', $this->shortName);
@@ -46,6 +56,10 @@ class RadioWithDescription extends Form\Control
         foreach ($this->model as $record) {
             $this->_appendRow($record, $selectedId);
         }
+
+        $this->js(true, null, '.ui.checkbox.radio')->checkbox([
+            'uncheckable' => $this->entityField === null || ($this->entityField->getField()->nullable || !$this->entityField->getField()->required),
+        ]);
     }
 
     protected function _appendRow(Model $record, $selectedId)
