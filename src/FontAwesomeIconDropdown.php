@@ -31,9 +31,7 @@ class FontAwesomeIconDropdown extends Dropdown
         }
 
         $model = new Model(new Static_($rows), ['idField' => 'name']);
-        $model->addField('name');
-
-        $this->setModel($model, ['name']);
+        $this->setModel($model);
 
 
         $this->renderRowFunction = static function (Model $record): array {
